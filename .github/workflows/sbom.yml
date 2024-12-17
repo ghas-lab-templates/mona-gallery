@@ -20,18 +20,16 @@ jobs:
     # Step to generate a unique artifact name
     - name: Generate unique artifact name
       id: artifact
-      run: echo "ARTIFACT_NAME=sbom-$(date +%s)" >> $GITHUB_ENV
+      run: |
+            echo "ARTIFACT_NAME=sbom-$(date +%s)" >> $GITHUB_ENV
+            mkdir sbom 
     
     - uses: anchore/sbom-action@v0
       id: sbom
       with:
        format: spdx
        artifact-name: ${{ env.ARTIFACT_NAME }}
-
-       run: |
-            pwd
-            ls
-
+       output-file: sbom
 
        
     - uses: actions/attest-build-provenance@v2
