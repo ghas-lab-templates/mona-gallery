@@ -22,7 +22,7 @@ jobs:
       id: artifact
       run: |
             echo "ARTIFACT_NAME=sbom-$(date +%s)" >> $GITHUB_ENV
-            mkdir sbom 
+            sudo mkdir sbom 
     
     - uses: anchore/sbom-action@v0
       id: sbom
