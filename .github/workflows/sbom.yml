@@ -16,14 +16,20 @@ jobs:
     
    steps:
     - uses: actions/checkout@v3
+       
+    # Step to generate a unique artifact name
+    - name: Generate unique artifact name
+      id: artifact
+      run: echo "ARTIFACT_NAME=sbom-$(date +%s)" >> $GITHUB_ENV
+    
     - uses: anchore/sbom-action@v0
       id: sbom
       with:
        format: spdx
-       output-file: . 
-
+       artifact-name: ${{ env.ARTIFACT_NAME }}
+       
     - uses: actions/attest-build-provenance@v2
       with:
-       subject-path: ${{ env.ANCHORE_SBOM_ACTION_PRIOR_ARTIFACT }}
+       subject-path: ${{ env.ARTIFACT_NAME }}
        
         
