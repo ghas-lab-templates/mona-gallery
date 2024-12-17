@@ -20,6 +20,7 @@ jobs:
       id: sbom
       with:
        format: spdx
+       output-file: . 
 
     - uses: actions/attest-build-provenance@v2
       with:
