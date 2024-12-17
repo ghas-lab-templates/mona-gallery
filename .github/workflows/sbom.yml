@@ -23,6 +23,6 @@ jobs:
 
     - uses: actions/attest-build-provenance@v2
       with:
-       subject-path: ${{ steps.sbom.outputs.sbom-path }}  
+       subject-path: ${{ env.ANCHORE_SBOM_ACTION_PRIOR_ARTIFACT }}
        
         
