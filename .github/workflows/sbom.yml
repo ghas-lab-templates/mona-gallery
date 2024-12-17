@@ -22,3 +22,7 @@ jobs:
        format: spdx
 
     - uses: actions/attest-build-provenance@v2
+      with:
+       subject-path: ${{steps.sbom.outputs.fileName }}
+       
+        
