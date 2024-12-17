@@ -27,6 +27,12 @@ jobs:
       with:
        format: spdx
        artifact-name: ${{ env.ARTIFACT_NAME }}
+
+       run: |
+            pwd
+            ls
+
+
        
     - uses: actions/attest-build-provenance@v2
       with:
