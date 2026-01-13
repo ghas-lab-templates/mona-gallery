@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "json-web-token": "v3.0"
+  }
+}
